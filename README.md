@@ -1,5 +1,4 @@
 # About "Tetris in ReactJS"
-
 ## Hello :wave:
 
 This is of course unofficial ReactJS version of tetris.
@@ -19,9 +18,18 @@ If you just want to add something just pull request :wink:.
 ## How to start
 > There are not any documentation right now but there are few comments in code which can be useful so please don't worry.
 
-1. At first you should do this tutorial if it's your first contribute: [My first contribution](https://github.com/firstcontributions/first-contributions)
+> You will need npm and node if you want to contribute.
+> node and npm download site: [node and npm](https://nodejs.org/en/download/)
 
-2. I think you should start to read what each method or component is responsible for.
+1. At first you should do some tutorial if it's your first contribute: [My first contribution](https://github.com/firstcontributions/first-contributions)
+
+2. Open tetris in your code editor and use `npm install --save` command.
+
+3. Wait for few minutes to finish installation.
+
+4. Use `npm start` command.
+
+5. I think you should start to read what each method or component is responsible for.
 To do this you can open every component from the top to the bottom of the components tree. Dont worry. Project isn't really big and it's not gonna be hard :smiley:.
 
 ## Components tree :deciduous_tree:
