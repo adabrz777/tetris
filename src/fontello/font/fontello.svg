@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="mail" unicode="&#xe800;" d="M929 11v428q-18-20-39-36-149-115-238-189-28-24-46-37t-48-28-57-13h-2q-26 0-57 13t-48 28-46 37q-88 74-238 189-21 16-39 36v-428q0-7 6-13t12-5h822q7 0 12 5t6 13z m0 586v14t-1 7-1 7-3 5-5 4-8 2h-822q-7 0-12-6t-6-12q0-94 83-159 107-84 223-176 4-3 20-17t25-21 25-17 28-16 24-5h2q11 0 24 5t28 16 25 17 25 21 20 17q116 92 224 176 30 24 56 65t26 73z m71 21v-607q0-37-26-63t-63-27h-822q-36 0-63 27t-26 63v607q0 37 26 63t63 26h822q37 0 63-26t26-63z" horiz-adv-x="1000" />
+
+<glyph glyph-name="note" unicode="&#xe801;" d="M381 820q0-42 46-97t90-100 61-119-39-154q-20-34-26-16-2 6 0 16 10 18 6 56t-13 78-43 73-82 41l0-536q2-48-37-95t-105-71q-74-28-143-8t-89 76 20 115 116 85q86 30 158 4l0 652 80 0z" horiz-adv-x="582" />
+
+<glyph glyph-name="note-beamed" unicode="&#xe802;" d="M206 714l534 116 0-704q2-42-30-81t-86-59q-64-24-110-8t-62 64q-18 48 7 97t85 73q52 20 106 10l0 376-354-82 0-490q0-42-32-81t-86-59q-64-22-109-7t-61 63q-18 48 6 97t84 73q54 20 108 10l0 592z" horiz-adv-x="740" />
+
+<glyph glyph-name="mail-squared" unicode="&#xf199;" d="M696 779q67 0 114-48t47-113v-536q0-66-47-113t-114-48h-535q-67 0-114 48t-47 113v536q0 66 47 113t114 48h535z m18-590v244q-17-20-35-31-19-12-74-47t-85-56q-55-38-91-38-37 0-92 38-26 18-79 52t-79 52q-7 4-19 15t-17 15v-244q0-22 16-38t37-15h465q22 0 38 15t15 38z m0 320q0 23-15 39t-38 16h-465q-22 0-37-15t-16-38q0-21 17-43t38-36q26-18 76-50t73-46q1-1 9-6t12-8 12-7 13-8 12-5 12-4 12-2 11 2 13 4 12 5 13 8 11 7 12 8 10 6l149 97q19 13 37 35t17 41z" horiz-adv-x="857.1" />
+</font>
+</defs>
+</svg>
