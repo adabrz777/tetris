@@ -43,6 +43,7 @@ To do this you can open every component from the top to the bottom of the compon
          |    |--- Pause.js
          |    |--- Next.js
          |    |--- Score.js
+         |         |--- Combo.js
          |
          |--- Settings.js
               |--- Audio.js
