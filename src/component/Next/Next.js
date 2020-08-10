@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './index.css';
 
 export default class Next extends Component {
     render(){
@@ -9,16 +10,16 @@ export default class Next extends Component {
             switch (i) {
 				case 'O':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
-										<td className={'--O'}/>
-										<td className={'--O'}/>
+										<td className={'Next__cell Next__cell--O'}/>
+										<td className={'Next__cell Next__cell--O'}/>
 									</tr>
 									<tr>
-										<td className={'--O'}/>
-										<td className={'--O'}/>
+										<td className={'Next__cell Next__cell--O'}/>
+										<td className={'Next__cell Next__cell--O'}/>
 									</tr>
 								</tbody>
 							</table>
@@ -27,20 +28,20 @@ export default class Next extends Component {
 					break;
 				case 'I':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
-										<td className={'--I'} />
+										<td className={'Next__cell Next__cell--I'} />
 									</tr>
 									<tr>
-										<td className={'--I'} />
+										<td className={'Next__cell Next__cell--I'} />
 									</tr>
 									<tr>
-										<td className={'--I'} />
+										<td className={'Next__cell Next__cell--I'} />
 									</tr>
 									<tr>
-										<td className={'--I'} />
+										<td className={'Next__cell Next__cell--I'} />
 									</tr>
 								</tbody>
 							</table>
@@ -49,18 +50,18 @@ export default class Next extends Component {
 					break;
 				case 'T':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
-										<td className={'--T'} />
+										<td className={'Next__cell Next__cell--T'} />
 									</tr>
 									<tr>
-										<td className={'--T'} />
-										<td className={'--T'} />
+										<td className={'Next__cell Next__cell--T'} />
+										<td className={'Next__cell Next__cell--T'} />
 									</tr>
 									<tr>
-										<td className={'--T'} />
+										<td className={'Next__cell Next__cell--T'} />
 									</tr>
 								</tbody>
 							</table>
@@ -69,18 +70,18 @@ export default class Next extends Component {
 					break;
 				case 'Z':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
-										<td className={'--Z'} />
-										<td className={'--Z'} />
+										<td className={'Next__cell Next__cell--Z'} />
+										<td className={'Next__cell Next__cell--Z'} />
 										<td style={{ visibility: 'hidden' }} />
 									</tr>
 									<tr>
 										<td style={{ visibility: 'hidden' }} />
-										<td className={'--Z'} />
-										<td className={'--Z'} />
+										<td className={'Next__cell Next__cell--Z'} />
+										<td className={'Next__cell Next__cell--Z'} />
 									</tr>
 								</tbody>
 							</table>
@@ -89,17 +90,17 @@ export default class Next extends Component {
 					break;
 				case 'S':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
 										<td style={{ visibility: 'hidden' }} />
-										<td className={'--S'} />
-										<td className={'--S'} />
+										<td className={'Next__cell Next__cell--S'} />
+										<td className={'Next__cell Next__cell--S'} />
 									</tr>
 									<tr>
-										<td className={'--S'} />
-										<td className={'--S'} />
+										<td className={'Next__cell Next__cell--S'} />
+										<td className={'Next__cell Next__cell--S'} />
 										<td style={{ visibility: 'hidden' }} />
 									</tr>
 								</tbody>
@@ -109,18 +110,18 @@ export default class Next extends Component {
 					break;
 				case 'L':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
-										<td className={'--L'} />
+										<td className={'Next__cell Next__cell--L'} />
 									</tr>
 									<tr>
-										<td className={'--L'} />
+										<td className={'Next__cell Next__cell--L'} />
 									</tr>
 									<tr>
-										<td className={'--L'} />
-										<td className={'--L'} />
+										<td className={'Next__cell Next__cell--L'} />
+										<td className={'Next__cell Next__cell--L'} />
 									</tr>
 								</tbody>
 							</table>
@@ -130,20 +131,20 @@ export default class Next extends Component {
 					break;
 				case 'J':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
 										<td style={{ visibility: 'hidden' }} />
-										<td className={'--J'} />
+										<td className={'Next__cell Next__cell--J'} />
 									</tr>
 									<tr>
 										<td style={{ visibility: 'hidden' }} />
-										<td className={'--J'} />
+										<td className={'Next__cell Next__cell--J'} />
 									</tr>
 									<tr>
-										<td className={'--J'} />
-										<td className={'--J'} />
+										<td className={'Next__cell Next__cell--J'} />
+										<td className={'Next__cell Next__cell--J'} />
 									</tr>
 								</tbody>
 							</table>
@@ -154,11 +155,11 @@ export default class Next extends Component {
 
 				case 'D':
 					el = (
-						<div className={'__nextElem'} key={key}>
+						<div className={'Next__next-element'} key={key}>
 							<table>
 								<tbody>
 									<tr>
-										<td className={'--D'} />
+										<td className={'Next__cell Next__cell--D'} />
 									</tr>
 								</tbody>
 							</table>
@@ -168,7 +169,7 @@ export default class Next extends Component {
 					break;
 
 				default:
-					console.log('sth gone wrong');
+					console.error('Wrong element type');
             }
             
             return el;

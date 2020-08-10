@@ -1,0 +1,76 @@
+.Next {
+	width: calc(4 * 2vw);
+
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	right: -10vw;
+}
+
+.Board:first-of-type .Next {
+	left: -10vw;
+}
+
+.Next__next-element {
+	width: calc(4 * 2vw);
+	height: calc(4 * 2vw);
+
+	margin-top: 30px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Next__next-element table {
+	border-collapse: collapse;
+}
+
+.Next__cell {
+	width: calc(2vw);
+	height: calc(2vw);
+
+	border: 2px solid #000000 !important;
+
+	box-sizing: border-box;
+
+	-webkit-box-shadow: inset 0px 0px .45vw .45vw rgba(10, 10, 10, 0.75);
+	-moz-box-shadow: inset 0px 0px .45vw .45vw rgba(10, 10, 10, 0.75);
+	box-shadow: inset 0px 0px .45vw .45vw rgba(10, 10, 10, 0.75);
+}
+
+.Next__cell--E {
+	background: #141414;
+}
+
+.Next__cell--O {
+	background: rgb(250, 250, 0);
+}
+
+.Next__cell--I {
+	background: #00eeff;
+}
+
+.Next__cell--J {
+	background: rgb(57, 43, 255);
+}
+
+.Next__cell--L {
+	background: #d88c00;
+}
+
+.Next__cell--S {
+	background: rgb(8, 245, 8);
+}
+
+.Next__cell--T {
+	background: #b106b1;
+}
+
+.Next__cell--Z {
+	background: red;
+}
+
+.Next__cell--D {
+	background: rgb(248, 57, 88);
+}

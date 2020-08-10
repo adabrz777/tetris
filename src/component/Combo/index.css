@@ -1,0 +1,18 @@
+.Combo {
+	display: inline-block;
+	color: yellow;
+	font-size: 0%;
+	animation: combo-anim .5s ease-in-out forwards;
+}
+
+@keyframes combo-anim{
+	0%{
+		font-size: 0%;
+	}
+	50%{
+		font-size: 100%;
+	}
+	100%{
+		font-size: 70%;
+	}
+}

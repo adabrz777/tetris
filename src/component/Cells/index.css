@@ -1,0 +1,49 @@
+.Board__cell {
+	width: 2vw;
+	height: 2vw;
+	float: left;
+	border: 1px solid black;
+	box-sizing: border-box;
+
+	color: white;
+
+	-webkit-box-shadow: inset 0px 0px .75vh .75vh rgba(10, 10, 10, 0.75);
+	-moz-box-shadow: inset 0px 0px .75vh .75vh rgba(10, 10, 10, 0.75);
+	box-shadow: inset 0px 0px .75vh .75vh rgba(10, 10, 10, 0.75);
+}
+
+.Board__cell--E {
+	background: #141414;
+}
+
+.Board__cell--O {
+	background: rgb(250, 250, 0);
+}
+
+.Board__cell--I {
+	background: #00eeff;
+}
+
+.Board__cell--J {
+	background: rgb(57, 43, 255);
+}
+
+.Board__cell--L {
+	background: #d88c00;
+}
+
+.Board__cell--S {
+	background: rgb(8, 245, 8);
+}
+
+.Board__cell--T {
+	background: #b106b1;
+}
+
+.Board__cell--Z {
+	background: red;
+}
+
+.Board__cell--D {
+	background: rgb(248, 57, 88);
+}

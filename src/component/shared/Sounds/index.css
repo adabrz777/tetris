@@ -1,0 +1,106 @@
+.Audio {
+	width: 100%;
+	margin-top: 8px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.Audio__btn-toggle-music, .Audio__btn-toggle-sound-effects{
+	width: 3vw;
+	height: 3vw;
+	background: #90b312;
+	border-radius: 5px;
+	font-size: 2.5vw;
+	line-height: 3vw;
+	text-align: center;
+	box-sizing: border-box;
+	letter-spacing: .75vw;
+
+	cursor: pointer;
+}
+
+.Audio__btn-toggle-music--disabled, .Audio__btn-toggle-sound-effects--disabled{
+	background: #757575;
+}
+
+.Audio__volume {
+	width: 8vw !important;
+	transform: translate(0, -5%);
+	height: 3vw;
+}
+
+input[type=range] {
+	background-color: transparent;
+	-webkit-appearance: none;
+	outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	background: #90b312;
+	border: 1px solid #010101;
+	border-radius: .45vw;
+	cursor: pointer;
+	height: .9vw;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	margin-top: -1px;
+	width: .9vw;
+	height: .9vw;
+	background: #5c720b;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-track {
+	background: #90b312;
+	border: 1px solid #010101;
+	border-radius: .45vw;
+	cursor: pointer;
+	height: .9vw;
+}
+input[type=range]::-moz-range-thumb {
+	margin-top: -1px;
+	width: .9vw;
+	height: .9vw;
+	background: #5c720b;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+	background: #90b312;
+	border: 1px solid #010101;
+	border-radius: .45vw;
+	cursor: pointer;
+	height: .9vw;
+}
+
+input[type=range]::-ms-fill-lower {
+	background: #90b312;
+	border: 1px solid #010101;
+	border-radius: .45vw;
+	cursor: pointer;
+	height: .9vw;
+}
+
+input[type=range]::-ms-fill-upper {
+	background: #90b312;
+	border: 1px solid #010101;
+	border-radius: .45vw;
+	cursor: pointer;
+	height: .9vw;
+}
+input[type=range]::-ms-thumb {
+	margin-top: -1px;
+	width: .9vw;
+	height: .9vw;
+	background: #5c720b;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	cursor: pointer;
+	/*Needed to keep the Edge thumb centred*/
+}

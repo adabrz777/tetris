@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './index.css';
 
 class Cells extends Component {
     render() { 
@@ -15,11 +16,11 @@ class Cells extends Component {
             }
 
             boardDraw = boardDraw.map((i, key) => {
-                return <div className={' __cells --' + i} key={key} />;
+                return <div className={'Board__cell Board__cell--' + i} key={key} />;
             });
         }
 
-        return ( <span>{!gameOver ? boardDraw : null}</span> );
+        return ( <React.Fragment>{!gameOver ? boardDraw : null}</React.Fragment> );
     }
 }
  

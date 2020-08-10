@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './index.css';
 
 class HighestScore extends Component {
 	state = {
@@ -31,7 +32,7 @@ class HighestScore extends Component {
 
 		best = best.map((i, key) => {
 			return (
-				<div key={key} className={'__place'}>
+				<div key={key} className={'HighestScore__place'}>
 					{i}
 				</div>
 			);

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './style.css';
-import Board from './Board';
-import Settings from './Settings';
-import {Sound} from './Sounds';
+import './index.css';
+import Board from '../Board/Board';
+import Gui from '../Gui/Gui';
+import Sorry from '../../component/Sorry/Sorry';
+import {Sound, Music} from '../../component/shared/Sounds/Sounds';
 
 class App extends Component {
 	constructor(props) {
@@ -105,7 +106,7 @@ class App extends Component {
 			})
 		}
 
-		Sound('start', 'start');
+		Sound({name: 'start'});
 	}
 
 	onePlayer = () => {
@@ -115,10 +116,9 @@ class App extends Component {
 			board[0] = <Board keysPressed={this.state.keysPressed} btns={this.state.btns1} keyS={1} key={1} lose={this.lose}/>;
 	
 			if(!this.state.start){
-				let audio = document.querySelector('#audio');
-				audio.play();
+				Music({action: 'play'});
 			}
-			Sound('start', 'start', this.state.gameOver);
+			Sound({name: 'start'});
 
 			this.setState({
 				board: [],
@@ -143,11 +143,10 @@ class App extends Component {
 			board[1] = <Board keysPressed={this.state.keysPressed} btns={this.state.btns2} keyS={2} key={2} lose={this.lose}/>;
 	
 			if(!this.state.start){
-				let audio = document.querySelector('#audio');
-				audio.play();
+				Music({action: 'play'});
 			}
 
-			Sound('start', 'start');
+			Sound({name: 'start'});
 			
 			this.setState({
 				board: [],
@@ -180,35 +179,18 @@ class App extends Component {
 		})
 	}
 
-	// left - 37
-	// right - 39
-	// up - 38
-	// down - 40
-	// z - 90
-	// x - 88
-	// p - 80
-
-	// w - 87
-	// a - 65
-	// s - 83
-	// d - 68
-	// v - 86
-	// b - 66
-	// . - 190
-	// / - 191
-
 	render() {
 		if(this.state.desktop){
 			return (
-				<div className={'Game'} onKeyDown={this.handleKeyDown} onKeyUp={this.handleKeyUp} tabIndex={0}>
+				<div className={'App'} onKeyDown={this.handleKeyDown} onKeyUp={this.handleKeyUp} tabIndex={0}>
 					{this.state.board}
-					<Settings restart={this.restart} start={this.state.start} onePlayer={this.onePlayer} twoPlayers={this.twoPlayers} score={this.state.score}/>
+					<Gui restart={this.restart} start={this.state.start} onePlayer={this.onePlayer} twoPlayers={this.twoPlayers} score={this.state.score}/>
 					
 				</div>
 			);
 		}
 		else{
-			return <p className={'Sorry'}>Sorry but this is only desktop app<br/>:'&#40;</p>
+			return <Sorry />
 		}
 		
 	}

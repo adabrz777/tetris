@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import GameOver from './GameOver';
-import Pause from './Pause';
-import Score from './Score';
-import Next from './Next';
-import Cells from './Cells';
-import {Sound} from './Sounds';
+import './index.css';
+import GameOver from '../../component/GameOver/GameOver';
+import Pause from '../../component/Pause/Pause';
+import Score from '../../component/Score/Score';
+import Next from '../../component/Next/Next';
+import Cells from '../../component/Cells/Cells';
+import {Sound} from '../../component/shared/Sounds/Sounds';
 
 export default class Board extends Component {
 	constructor(props) {
@@ -60,12 +61,6 @@ export default class Board extends Component {
 
 			//player combo
 			combo: 1,
-
-			//combo draw element
-			comboDraw: null,
-
-			//does combo increase?
-			comboChange: false
 		};
 	}
 
@@ -315,7 +310,7 @@ export default class Board extends Component {
 		board[active[2].y][active[2].x].stay = true;
 		board[active[3].y][active[3].x].stay = true;
 
-		Sound('stay', this.props.keyS, this.state.gameOver);
+		Sound({name: 'stay'});
 
 		this.setState({
 			board: board
@@ -337,7 +332,7 @@ export default class Board extends Component {
 
 				this.key_pressed();
 
-				Sound('move', this.props.keyS, this.state.gameOver);
+				Sound({name: 'move', dead: this.state.gameOver});
 			}
 
 			// move to the right
@@ -350,7 +345,7 @@ export default class Board extends Component {
 
 				this.key_pressed();
 
-				Sound('move', this.props.keyS, this.state.gameOver);
+				Sound({name: 'move', dead: this.state.gameOver});
 			}
 
 			// move down
@@ -365,7 +360,7 @@ export default class Board extends Component {
 
 				score++;
 
-				Sound('move', this.props.keyS, this.state.gameOver);
+				Sound({name: 'move', dead: this.state.gameOver});
 			}
 
 			// skip
@@ -443,7 +438,7 @@ export default class Board extends Component {
 	//yes - increases players score, increase combo value, move rest of lines down
 	//no - reset combo value
 	check_strike = () => {
-		let { board, WIDTH, HEIGHT, score, combo, comboChange } = this.state;
+		let { board, WIDTH, HEIGHT, score, combo } = this.state;
 		let if_combo = false;
 
 		return new Promise((res, rej) => {
@@ -459,7 +454,7 @@ export default class Board extends Component {
 						if_combo = true;
 						score += +(100 * combo);
 						score = +score.toFixed();
-						Sound('success', this.props.keyS, this.state.gameOver);
+						Sound({name: 'success', dead: this.state.gameOver});
 
 						for (let k = i; k > 0; k--) {
 							for (let l = 0; l < WIDTH; l++) {
@@ -473,26 +468,15 @@ export default class Board extends Component {
 
 			if (if_combo === true) {
 				combo = (combo *= 1.2).toFixed(2);
-				comboChange = true;
 			} else {
 				combo = 1;
-				comboChange = false;
 			}
 
-			this.setState(
-				{
-					board: board,
-					score: score,
-					combo: combo,
-					comboChange: comboChange
-				},
-				() => {
-					setTimeout(() => {
-						res(true);
-					}, 10);
-					this.drawCombo();
-				}
-			);
+			this.setState({
+				board: board,
+				score: score,
+				combo: combo
+			}, res(true));
 		});
 	};
 
@@ -664,46 +648,13 @@ export default class Board extends Component {
 			board[active[2].y][active[2].x].type = activeType;
 			board[active[3].y][active[3].x].type = activeType;
 
-			Sound('move', this.props.keyS, this.state.gameOver);
+			Sound({name: 'move', dead: this.state.gameOver});
 		}
 
 		this.setState({
 			active: active,
 			board: board
 		});
-	};
-
-	//function generates element to display - combo counter
-	drawCombo = () => {
-		let combo = this.state.combo;
-
-		let text = combo > 1.3 ? ' x' + combo : '';
-		let id = `"__combo-${this.props.keyS}"`;
-
-		this.setState(
-			{
-				comboDraw: (
-					<span className={'__combo'} id={id}>
-						{text}
-					</span>
-				)
-			},
-			() => {
-				if (combo > 1.3 && this.state.comboChange === true) {
-					let elem = document.getElementById(id);
-					elem.style.fontSize = '120%';
-
-					setTimeout(() => {
-						let elem = document.getElementById(id);
-						elem.style.fontSize = '70%';
-
-						this.setState({
-							comboChange: false
-						});
-					}, 500);
-				}
-			}
-		);
 	};
 
 	//main game function
@@ -719,7 +670,7 @@ export default class Board extends Component {
 					},
 					() => {
 						if (!gameOver) {
-							Sound('lose', this.props.keyS);
+							Sound({name: 'lose'});
 							this.props.lose(this.state.score);
 						}
 					}
@@ -753,7 +704,7 @@ export default class Board extends Component {
 	}
 
 	render() {
-		const { gameOver, pause, score, comboDraw, next, board, WIDTH, HEIGHT } = this.state;
+		const { gameOver, pause, score, combo, next, board, WIDTH, HEIGHT } = this.state;
 
 		return (
 			<div className={'Board'}>
@@ -761,8 +712,9 @@ export default class Board extends Component {
 				<GameOver gameOver={gameOver} />
 				<Pause gameOver={gameOver} pause={pause} />
 				<Next gameOver={gameOver} next={next} />
-				<Score score={score} comboDraw={comboDraw} />
+				<Score score={score} combo={combo}/>
 			</div>
 		);
 	}
 }
+ 
