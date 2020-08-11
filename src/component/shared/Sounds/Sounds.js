@@ -6,7 +6,8 @@ class Audio extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            volumeValue: 50
+            volumeValue: localStorage.getItem('tetris-rjs-music-volume')/1 || 50,
+            soundEffects: true
         };  
 	}
 
@@ -22,26 +23,45 @@ class Audio extends Component {
 
         this.setState({
             volumeValue: volumeValue
-        })
+        }, localStorage.setItem('tetris-rjs-music-volume', volumeValue))
 
     }
 
     toggleSoundEffects = () => {
-        let soundEffect = document.querySelectorAll('.Audio__sound');
-		
-		for(let i = 0; i < soundEffect.length; i++){
-			if(soundEffect[i]) soundEffect[i].volume = Math.abs(soundEffect[i].volume - 1);
-		}
+        let soundEffects = false;
 
-        soundEffect = document.querySelector('.Audio__btn-toggle-sound-effects');
-		soundEffect.classList.toggle('Audio__btn-toggle-sound-effects--disabled');
+        if(localStorage.getItem('tetris-rjs-sound-effects') === 'true')
+            soundEffects = true;
+        else
+            soundEffects = false;
+
+        document.querySelector('.Audio__btn-toggle-sound-effects').classList.toggle('Audio__btn-toggle-sound-effects--disabled');
+
+
+        localStorage.setItem('tetris-rjs-sound-effects', !soundEffects);
+        this.setState({
+            soundEffects: !soundEffects
+        })
 
     }
 
 	componentDidMount() {
+        if(!localStorage.getItem('tetris-rjs-music'))
+            localStorage.setItem('tetris-rjs-music', true);
+
         let audio = document.querySelector('.Audio__music');
-        
-        if(audio !== null) audio.volume = 0.5;
+        if(audio !== null){
+            if(localStorage.getItem('tetris-rjs-music-volume'))
+                audio.volume = localStorage.getItem('tetris-rjs-music-volume')/100;
+            else
+                audio.volume = 0.5;
+        }
+
+        if(localStorage.getItem('tetris-rjs-music') === 'false')
+            document.querySelector('.Audio__btn-toggle-music').classList.add('Audio__btn-toggle-music--disabled');
+
+        if(localStorage.getItem('tetris-rjs-sound-effects') === 'false')
+            document.querySelector('.Audio__btn-toggle-sound-effects').classList.add('Audio__btn-toggle-sound-effects--disabled');
     }
 
 	render() {
@@ -50,7 +70,6 @@ class Audio extends Component {
 				<div onClick={this.toggleMusic} className={'Audio__btn-toggle-music'}>{this.state.audio}<i className="icon-note-beamed" /></div>
                 <input type='range' className={'Audio__volume'} min={1} max={100} value={this.state.volumeValue} onChange={this.handleVolumeChange}/>
                 
-                {/* FIXME: totally doesn't work ;p */}
                 <div onClick={this.toggleSoundEffects} className={'Audio__btn-toggle-sound-effects'}><i className="icon-note" /></div>
                 
                 <audio src={`${require('.\\musics-src\\music.mp3')}`} className={'Audio__music'} loop/>
@@ -66,10 +85,12 @@ export function Music (action = {action: 'play'}) {
 
     switch(action.action){
         case 'play': {
-            audio.play();
+            if(localStorage.getItem('tetris-rjs-music') === 'true'){
+                audio.play();
 
-            if(audio.classList.contains('Audio__btn-toggle-music--disabled'))
-                audio.classList.remove('Audio__btn-toggle-music--disabled');
+                if(audio.classList.contains('Audio__btn-toggle-music--disabled'))
+                    audio.classList.remove('Audio__btn-toggle-music--disabled');
+            }
 
             break;
         }
@@ -92,6 +113,13 @@ export function Music (action = {action: 'play'}) {
     
             toggle.classList.toggle('Audio__btn-toggle-music--disabled');
 
+            if(localStorage.getItem('tetris-rjs-music') === 'false')
+                localStorage.setItem('tetris-rjs-music', true)
+            else
+                if(localStorage.getItem('tetris-rjs-music') === 'true')
+                    localStorage.setItem('tetris-rjs-music', false)
+
+
             break;
         }
         
@@ -112,6 +140,7 @@ export function Sound(sound = {name: '', dead: false, volume: 1}){
     let {name, dead = false, volume = 1 } = {...sound};
 
     if(dead) return console.error('Component is dead');
+    if(localStorage.getItem('tetris-rjs-sound-effects') === 'false') return console.error('Sound Effects are off');
 
     switch(name){
         case 'stay':    name = `${require('.\\sounds-src\\stay.wav')}`;       break;
@@ -138,45 +167,3 @@ export function Sound(sound = {name: '', dead: false, volume: 1}){
 
 
 }
-
-
-
-
-// export function Sound(src, key, dead = false){
-//     let sound = document.querySelector(`.Audio__sound-${src}-${key}`);
-    
-//     switch(src){
-//         case 'stay':    src = `${require('./stay.wav')}`;       break;
-//         case 'lose':    src = `${require('./lose.wav')}`;       break;
-//         case 'move':    src = `${require('./move.wav')}`;       break;
-//         case 'start':   src = `${require('./start.ogg')}`;      break;
-//         case 'success': src = `${require('./success.wav')}`;    break;
-        
-//         default: console.log('sth gone wrong');
-//     }
-    
-
-//     if(!dead){
-//         new Promise((res)=>{
-//             try {
-//                 sound.pause();
-//                 res();
-//             } catch (error) {
-//                 console.log(error);
-//             }
-            
-            
-//         }).then(()=>{
-//             sound.currentTime = 0;
-//         }).then(()=>{
-//             sound.src = src;
-//         }).then(()=>{
-//             try {
-//                 sound.play();
-//             } catch (error) {
-//                 console.log(error);
-//             }
-            
-//         })
-//     }
-// }
