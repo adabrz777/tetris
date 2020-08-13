@@ -185,7 +185,7 @@ class App extends Component {
 				<div className={'App'} onKeyDown={this.handleKeyDown} onKeyUp={this.handleKeyUp} tabIndex={0}>
 					{this.state.board}
 					<Gui restart={this.restart} start={this.state.start} onePlayer={this.onePlayer} twoPlayers={this.twoPlayers} score={this.state.score}/>
-					
+					<div className="App__code">You can check code <a href="https://github.com/adabrz777/tetris">here</a>.</div>
 				</div>
 			);
 		}
