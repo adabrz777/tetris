@@ -140,7 +140,7 @@ export function Sound(sound = {name: '', dead: false, volume: 1}){
     let {name, dead = false, volume = 1 } = {...sound};
 
     if(dead) return console.error('Component is dead');
-    if(localStorage.getItem('tetris-rjs-sound-effects') === 'false') return console.error('Sound Effects are off');
+    if(localStorage.getItem('tetris-rjs-sound-effects') === 'false') return null;
 
     switch(name){
         case 'stay':    name = `${require('.\\sounds-src\\stay.wav')}`;       break;
